@@ -1,0 +1,2 @@
+# Analysis-of-Instagram-Social-Graph-Structure
+Co-relation and analysis of Instagram Social Graph structure-  In our project we aim to analyse the relation and structure between two major components of an Instagram post – the Locations and the Hashtag.  We aim to create a graph to understand the dynamics of the relations between the 2 components.  We would also determine the measures in order to evaluate the strength of these relations and the entities in order to obtain a better understanding of the location.
