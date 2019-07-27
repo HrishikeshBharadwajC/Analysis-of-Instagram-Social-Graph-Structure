@@ -1,0 +1,14 @@
+app_name <- "Location Network Analysis"
+client_id <- "c743d7bdcc62416d85feda3bafd7b69c"
+client_secret <- "66d9fd0878c640328242a8eb47670ee0"
+scope = "public_content"
+library("httr", lib.loc="~/R/win-library/3.4")
+instagram <- oauth_endpoint( authorize = "https://api.instagram.com/oauth/authorize/?client_id=c743d7bdcc62416d85feda3bafd7b69c&redirect_uri=http://localhost:1410/&response_type=code&scope=public_content", access = "https://api.instagram.com/oauth/access_token")
+myapp <- oauth_app(app_name, client_id, client_secret)
+ig_oauth <- oauth2.0_token(instagram, myapp,scope="public_content",  type = "application/x-www-form-urlencoded",cache=FALSE)
+tmp <- strsplit(toString(names(ig_oauth$credentials)), '"')
+token <- tmp[[1]][4]
+username <- "anishsaha_"
+library(rjson)
+library(RCurl)
+user_info <- fromJSON(getURL(paste('https://api.instagram.com/v1/users/search?q=',username,'&access_token=',token,sep="")),unexpected.escape = "keep")
